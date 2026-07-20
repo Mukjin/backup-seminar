@@ -578,50 +578,58 @@
                 
                 <div class="flex flex-col gap-6">
                     <!-- Top Zone: Seohyeon HQ -->
-                    <div class="bg-blue-50/70 border-2 border-blue-100 rounded-2xl p-6 relative">
-                        <span class="absolute -top-3 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">🏢 서현 본원 (본사)</span>
+                    <div class="bg-blue-50/40 border-2 border-blue-100 rounded-2xl p-6 relative">
+                        <span class="absolute -top-3 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">서현 본원 (본사)</span>
                         
                         <div class="flex flex-col md:flex-row items-center justify-between gap-6 mt-4">
                             <!-- Operating Server -->
                             <div class="bg-white border border-slate-200 rounded-xl p-4 text-center w-full md:w-1/4 shadow-sm">
-                                <div class="text-3xl mb-1 text-slate-600">💻</div>
                                 <h4 class="font-bold text-sm text-slate-800 mb-1">1. 운영 시스템</h4>
-                                <p class="text-[11px] text-slate-500">가상 서버 (VM), DB, 파일</p>
+                                <p class="text-[11px] text-slate-500">가상 서버 (VM), DB, 파일서버</p>
                             </div>
 
                             <!-- Connection arrow -->
                             <div class="flex flex-col items-center">
-                                <span class="text-[10px] text-blue-500 font-bold">① 백업 지시</span>
-                                <div class="text-blue-500 font-bold text-2xl rotate-90 md:rotate-0">➡️</div>
+                                <span class="text-[10px] text-blue-500 font-bold mb-1">① 백업 지시</span>
+                                <svg class="w-6 h-6 text-blue-500 hidden md:block" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                </svg>
+                                <svg class="w-6 h-6 text-blue-500 md:hidden" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+                                </svg>
                             </div>
 
                             <!-- NetVault & RR (Director) -->
                             <div class="bg-white border border-slate-200 rounded-xl p-4 text-center w-full md:w-1/3 shadow-sm relative">
                                 <span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded absolute -top-3 left-4 border border-slate-200">백업 솔루션</span>
                                 <div class="grid grid-cols-2 gap-3 mt-1">
-                                    <div class="bg-blue-50 p-2.5 rounded-lg border border-blue-200">
+                                    <div class="bg-blue-50/50 p-2.5 rounded-lg border border-blue-200">
                                         <div class="font-bold text-xs text-blue-800">NetVault</div>
                                         <p class="text-[10px] text-blue-600 font-medium">문서 / DB 백업</p>
                                     </div>
-                                    <div class="bg-indigo-50 p-2.5 rounded-lg border border-indigo-200">
+                                    <div class="bg-indigo-50/50 p-2.5 rounded-lg border border-indigo-200">
                                         <div class="font-bold text-xs text-indigo-800">Rapid Recovery</div>
-                                        <p class="text-[10px] text-indigo-600 font-medium">시스템 통째 백업</p>
+                                        <p class="text-[10px] text-indigo-600 font-medium">시스템 전체 백업</p>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Connection arrow -->
                             <div class="flex flex-col items-center">
-                                <span class="text-[10px] text-teal-600 font-bold">② 저장</span>
-                                <div class="text-teal-600 font-bold text-2xl rotate-90 md:rotate-0">➡️</div>
+                                <span class="text-[10px] text-teal-600 font-bold mb-1">② 저장</span>
+                                <svg class="w-6 h-6 text-teal-500 hidden md:block" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                </svg>
+                                <svg class="w-6 h-6 text-teal-500 md:hidden" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+                                </svg>
                             </div>
 
                             <!-- Seohyeon QoreStor (1차 창고) -->
                             <div class="bg-teal-50 border-2 border-teal-200 rounded-xl p-4 text-center w-full md:w-1/4 shadow-sm relative">
                                 <span class="bg-teal-600 text-white text-[9px] font-bold px-2 py-0.5 rounded absolute -top-3 left-4">1차 저장소</span>
-                                <div class="text-3xl mb-1 text-teal-600">💾</div>
                                 <h4 class="font-bold text-sm text-teal-900 mb-1">본원 QoreStor</h4>
-                                <p class="text-[10px] text-teal-700 font-medium">용량 90% 압축 보관</p>
+                                <p class="text-[10px] text-teal-700 font-medium">실제 데이터 압축 보관</p>
                             </div>
                         </div>
                     </div>
@@ -629,22 +637,23 @@
                     <!-- Middle Link: RDA replication -->
                     <div class="flex flex-col items-center py-2 relative">
                         <div class="flex items-center gap-2 bg-amber-50 border-2 border-amber-200 px-5 py-2.5 rounded-full text-xs shadow-sm text-amber-800 font-bold">
-                            <span>📡 ③ NetVault의 백업 정책에 따라 QoreStor 간 데이터 원격 복제</span>
+                            <span>③ NetVault의 백업 정책에 따라 QoreStor 간 데이터 원격 복제</span>
                         </div>
-                        <div class="text-amber-500 font-bold text-2xl animate-bounce mt-2">👇</div>
+                        <svg class="w-6 h-8 text-amber-500 mt-2 animate-bounce" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+                        </svg>
                     </div>
 
                     <!-- Bottom Zone: Yatap Campus -->
-                    <div class="bg-emerald-50/70 border-2 border-emerald-100 rounded-2xl p-6 relative">
-                        <span class="absolute -top-3 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">🏞️ 야탑 AI Campus (원격 백업지)</span>
+                    <div class="bg-emerald-50/40 border-2 border-emerald-100 rounded-2xl p-6 relative">
+                        <span class="absolute -top-3 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">야탑 AI Campus (원격 백업지)</span>
                         
                         <div class="flex justify-center mt-4">
                             <!-- Yatap QoreStor (2차 창고) -->
-                            <div class="bg-emerald-100/50 border-2 border-emerald-300 rounded-xl p-5 text-center w-full md:w-2/3 shadow-sm relative">
+                            <div class="bg-emerald-100/30 border-2 border-emerald-300 rounded-xl p-5 text-center w-full md:w-2/3 shadow-sm relative">
                                 <span class="bg-emerald-600 text-white text-[9px] font-bold px-2 py-0.5 rounded absolute -top-3 left-4">2차 소산 저장소</span>
-                                <div class="text-3xl mb-2 text-emerald-600">🛡️</div>
                                 <h4 class="font-bold text-base text-emerald-900 mb-1">야탑 QoreStor</h4>
-                                <p class="text-xs text-emerald-800 font-medium">본원 백업 데이터를 원격 전송받아 안전하게 이중 보관</p>
+                                <p class="text-xs text-emerald-800 font-medium">본원 백업 데이터를 전송받아 이중 안전 보관</p>
                             </div>
                         </div>
                     </div>

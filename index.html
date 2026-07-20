@@ -166,150 +166,87 @@
                     </div>
 
                     <!-- Interactive Infographic Grid -->
-                    <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-8">
-                        <!-- Full Backup Card -->
-                        <div class="border border-slate-200 rounded-xl p-5 bg-white shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <span class="font-bold text-base text-slate-800 bg-blue-100 text-blue-800 px-3 py-1 rounded-full">풀(Full) 백업</span>
-                                    <span class="text-xs text-blue-600 font-semibold">전체 원본</span>
-                                </div>
-                                <div class="bg-blue-50/50 border border-blue-100 p-3 rounded-lg text-xs mb-3 text-slate-700">
-                                    <strong>📍 매번 전부 복사:</strong><br>
-                                    복잡하게 계산하지 않고 매번 데이터를 통째로 다 백업해 두는 방식입니다.
-                                </div>
-                                <p class="text-xs text-slate-500 mb-4">백업하는 데 시간이 가장 오래 걸리지만, 데이터 전체가 하나로 뭉쳐 있어 관리하기가 쉽습니다.</p>
-                                
-                                <!-- Infographic Timeline -->
-                                <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 space-y-2 mb-4">
-                                    <div class="flex items-center text-xs">
-                                        <span class="w-10 text-slate-400 font-semibold">일요일</span>
-                                        <div class="flex-1 flex gap-1">
-                                            <div class="h-6 flex-1 bg-blue-600 rounded text-[9px] text-white flex items-center justify-center font-bold shadow-sm">전체 데이터</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center text-xs">
-                                        <span class="w-10 text-slate-400 font-semibold">월요일</span>
-                                        <div class="flex-1 flex gap-1">
-                                            <div class="h-6 flex-1 bg-blue-600 rounded text-[9px] text-white flex items-center justify-center font-bold shadow-sm">전체 데이터</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center text-xs">
-                                        <span class="w-10 text-slate-400 font-semibold">화요일</span>
-                                        <div class="flex-1 flex gap-1">
-                                            <div class="h-6 flex-1 bg-blue-600 rounded text-[9px] text-white flex items-center justify-center font-bold shadow-sm">전체 데이터</div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="flex flex-col gap-10 mb-8 pt-4 lg:px-6">
+
+                        <!-- 1. Full Backup -->
+                        <div class="relative">
+                            <h4 class="font-bold text-slate-800 text-lg mb-1">① 풀 백업 (Full Backup)</h4>
+                            <p class="text-slate-500 text-sm mb-6">매일 전체 데이터를 통째로 복사</p>
+                            
+                            <div class="flex justify-between items-end mb-4 w-full">
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">월</span><div class="w-full h-16 sm:h-20 bg-blue-50 border border-blue-300 rounded-lg flex items-center justify-center text-blue-900 font-bold shadow-sm text-[10px] sm:text-base">전체</div></div>
+                                <div class="w-[2%]"></div>
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">화</span><div class="w-full h-16 sm:h-20 bg-blue-50 border border-blue-300 rounded-lg flex items-center justify-center text-blue-900 font-bold shadow-sm text-[10px] sm:text-base">전체</div></div>
+                                <div class="w-[2%]"></div>
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">수</span><div class="w-full h-16 sm:h-20 bg-blue-50 border border-blue-300 rounded-lg flex items-center justify-center text-blue-900 font-bold shadow-sm text-[10px] sm:text-base">전체</div></div>
+                                <div class="w-[2%]"></div>
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">목</span><div class="w-full h-16 sm:h-20 bg-blue-50 border border-blue-300 rounded-lg flex items-center justify-center text-blue-900 font-bold shadow-sm text-[10px] sm:text-base">전체</div></div>
+                                <div class="w-[2%]"></div>
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">금</span><div class="w-full h-16 sm:h-20 bg-blue-50 border border-blue-300 rounded-lg flex items-center justify-center text-blue-900 font-bold shadow-sm text-[10px] sm:text-base">전체</div></div>
+                                <div class="w-[2%]"></div>
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">토</span><div class="w-full h-16 sm:h-20 bg-blue-50 border border-blue-300 rounded-lg flex items-center justify-center text-blue-900 font-bold shadow-sm text-[10px] sm:text-base">전체</div></div>
+                                <div class="w-[2%]"></div>
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">일</span><div class="w-full h-16 sm:h-20 bg-blue-50 border border-blue-300 rounded-lg flex items-center justify-center text-blue-900 font-bold shadow-sm text-[10px] sm:text-base">전체</div></div>
                             </div>
                             
-                            <div class="border-t border-slate-100 pt-3">
-                                <div class="grid grid-cols-2 gap-2 text-xs text-slate-600 mb-2">
-                                    <div>⚡ 복구 속도: <span class="font-bold text-emerald-600">매우 빠름</span></div>
-                                    <div>💾 저장 용량: <span class="font-bold text-red-600">매우 큼</span></div>
-                                </div>
-                                <div class="text-[11px] bg-emerald-50 text-emerald-800 p-2 rounded">
-                                    <strong>💡 복구할 때:</strong> 원하는 날짜의 전체 백업본 <strong>딱 1개만</strong> 가져와 풀면 복구가 끝납니다.
-                                </div>
-                            </div>
+                            <p class="text-slate-600 text-sm mt-4">복원: 원하는 날짜의 백업 1개만 있으면 즉시 복원 (가장 단순·빠름 / 용량·시간 부담 큼)</p>
+                            <div class="border-b border-slate-100 mt-6"></div>
                         </div>
 
-                        <!-- Incremental Backup Card -->
-                        <div class="border border-slate-200 rounded-xl p-5 bg-white shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <span class="font-bold text-base text-slate-800 bg-teal-100 text-teal-800 px-3 py-1 rounded-full">증분(Incremental) 백업</span>
-                                    <span class="text-xs text-teal-600 font-semibold">최근 백업 이후 변경분</span>
-                                </div>
-                                <div class="bg-teal-50/50 border border-teal-100 p-3 rounded-lg text-xs mb-3 text-slate-700">
-                                    <strong>🔗 바로 직전 백업과 연동:</strong><br>
-                                    가장 최근 백업(풀 혹은 이전 증분) 시점 이후 변경된 데이터만 저장합니다.
-                                </div>
-                                <p class="text-xs text-slate-500 mb-4">가장 최근에 기록된 시점과 비교해 새로 추가/변경된 부분만 저장하므로 용량이 매우 절약됩니다.</p>
-                                
-                                <!-- Infographic Timeline -->
-                                <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 space-y-2 mb-4">
-                                    <div class="flex items-center text-xs">
-                                        <span class="w-10 text-slate-400 font-semibold">일요일</span>
-                                        <div class="flex-1 flex gap-1">
-                                            <div class="h-6 flex-1 bg-blue-600 rounded text-[9px] text-white flex items-center justify-center font-bold shadow-sm">전체 데이터 (기본)</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center text-xs">
-                                        <span class="w-10 text-slate-400 font-semibold">월요일</span>
-                                        <div class="flex-1 flex gap-1">
-                                            <div class="h-6 w-full bg-slate-200 rounded text-[9px] text-slate-400 flex items-center justify-center">변경 없음</div>
-                                            <div class="h-6 w-1/4 bg-teal-500 rounded text-[9px] text-white flex items-center justify-center font-bold shadow-sm">월 변경분</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center text-xs">
-                                        <span class="w-10 text-slate-400 font-semibold">화요일</span>
-                                        <div class="flex-1 flex gap-1">
-                                            <div class="h-6 w-full bg-slate-200 rounded text-[9px] text-slate-400 flex items-center justify-center">변경 없음</div>
-                                            <div class="h-6 w-1/4 bg-teal-500 rounded text-[9px] text-white flex items-center justify-center font-bold shadow-sm">화 변경분</div>
-                                        </div>
-                                    </div>
-                                </div>
+                        <!-- 2. Incremental Backup -->
+                        <div class="relative">
+                            <h4 class="font-bold text-slate-800 text-lg mb-1">② 증분 백업 (Incremental Backup)</h4>
+                            <p class="text-slate-500 text-sm mb-6">직전 백업 이후 '바뀐 부분'만 백업</p>
+                            
+                            <div class="flex justify-between items-end mb-4 w-full">
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">월</span><div class="w-full h-16 sm:h-20 bg-blue-50 border border-blue-300 rounded-lg flex items-center justify-center text-blue-900 font-bold shadow-sm text-[10px] sm:text-base">전체</div></div>
+                                <div class="w-[2%] flex justify-center pb-2 sm:pb-3 text-[#a2c896] font-black sm:text-lg">→</div>
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">화</span><div class="w-full h-8 sm:h-10 bg-[#e8f3e5] border border-[#a2c896] rounded-lg shadow-sm"></div></div>
+                                <div class="w-[2%] flex justify-center pb-2 sm:pb-3 text-[#a2c896] font-black sm:text-lg">→</div>
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">수</span><div class="w-full h-8 sm:h-10 bg-[#e8f3e5] border border-[#a2c896] rounded-lg shadow-sm"></div></div>
+                                <div class="w-[2%] flex justify-center pb-2 sm:pb-3 text-[#a2c896] font-black sm:text-lg">→</div>
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">목</span><div class="w-full h-8 sm:h-10 bg-[#e8f3e5] border border-[#a2c896] rounded-lg shadow-sm"></div></div>
+                                <div class="w-[2%] flex justify-center pb-2 sm:pb-3 text-[#a2c896] font-black sm:text-lg">→</div>
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">금</span><div class="w-full h-8 sm:h-10 bg-[#e8f3e5] border border-[#a2c896] rounded-lg shadow-sm"></div></div>
+                                <div class="w-[2%] flex justify-center pb-2 sm:pb-3 text-[#a2c896] font-black sm:text-lg">→</div>
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">토</span><div class="w-full h-8 sm:h-10 bg-[#e8f3e5] border border-[#a2c896] rounded-lg shadow-sm"></div></div>
+                                <div class="w-[2%] flex justify-center pb-2 sm:pb-3 text-[#a2c896] font-black sm:text-lg">→</div>
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">일</span><div class="w-full h-8 sm:h-10 bg-[#e8f3e5] border border-[#a2c896] rounded-lg shadow-sm"></div></div>
                             </div>
                             
-                            <div class="border-t border-slate-100 pt-3">
-                                <div class="grid grid-cols-2 gap-2 text-xs text-slate-600 mb-2">
-                                    <div>⚡ 복구 속도: <span class="font-bold text-red-600">느림</span></div>
-                                    <div>💾 저장 용량: <span class="font-bold text-emerald-600">최소</span></div>
-                                </div>
-                                <div class="text-[11px] bg-teal-50 text-teal-800 p-2 rounded">
-                                    <strong>💡 복구할 때:</strong> <code>최초 풀 백업 + 월요일 증분 + 화요일 증분 + 수요일 증분</code> 등 <strong>모든 백업 체인</strong>을 순서대로 병합해야 합니다.
-                                </div>
-                            </div>
+                            <p class="text-slate-600 text-sm mt-4">복원: 풀백업 + 그날까지의 모든 증분을 순서대로 적용 (용량·시간 최소 / 중간 1개만 손상돼도 이후 복원 불가)</p>
+                            <div class="border-b border-slate-100 mt-6"></div>
                         </div>
 
-                        <!-- Differential Backup Card -->
-                        <div class="border border-slate-200 rounded-xl p-5 bg-white shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <span class="font-bold text-base text-slate-800 bg-amber-100 text-amber-800 px-3 py-1 rounded-full">차등(Differential) 백업</span>
-                                    <span class="text-xs text-amber-600 font-semibold">마지막 풀 대비 누적</span>
-                                </div>
-                                <div class="bg-amber-50/50 border border-amber-100 p-3 rounded-lg text-xs mb-3 text-slate-700">
-                                    <strong>🎯 마지막 풀 백업과 연동:</strong><br>
-                                    일요일 풀 백업 이후 누적된 월요일 변경분, 화요일엔 월+화 변경분을 누적해서 백업합니다.
-                                </div>
-                                <p class="text-xs text-slate-500 mb-4">중간 단계는 생략하고 오직 기준점(풀 백업) 이후 늘어난 데이터 전체를 매번 누적하여 저장합니다.</p>
-                                
-                                <!-- Infographic Timeline -->
-                                <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 space-y-2 mb-4">
-                                    <div class="flex items-center text-xs">
-                                        <span class="w-10 text-slate-400 font-semibold">일요일</span>
-                                        <div class="flex-1 flex gap-1">
-                                            <div class="h-6 flex-1 bg-blue-600 rounded text-[9px] text-white flex items-center justify-center font-bold shadow-sm">전체 데이터 (기본)</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center text-xs">
-                                        <span class="w-10 text-slate-400 font-semibold">월요일</span>
-                                        <div class="flex-1 flex gap-1">
-                                            <div class="h-6 w-full bg-slate-200 rounded text-[9px] text-slate-400 flex items-center justify-center">변경 없음</div>
-                                            <div class="h-6 w-1/4 bg-amber-500 rounded text-[9px] text-white flex items-center justify-center font-bold shadow-sm">월 누적분</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center text-xs">
-                                        <span class="w-10 text-slate-400 font-semibold">화요일</span>
-                                        <div class="flex-1 flex gap-1">
-                                            <div class="h-6 w-full bg-slate-200 rounded text-[9px] text-slate-400 flex items-center justify-center">변경 없음</div>
-                                            <div class="h-6 w-1/2 bg-amber-500 rounded text-[9px] text-white flex items-center justify-center font-bold shadow-sm">월+화 누적분</div>
-                                        </div>
-                                    </div>
-                                </div>
+                        <!-- 3. Differential Backup -->
+                        <div class="relative">
+                            <h4 class="font-bold text-slate-800 text-lg mb-1">③ 차등 백업 (Differential Backup)</h4>
+                            <p class="text-slate-500 text-sm mb-6">마지막 풀백업 이후 '누적 변경분'을 백업</p>
+                            
+                            <div class="flex justify-between items-end mb-4 w-full">
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">월</span><div class="w-full h-16 sm:h-20 bg-blue-50 border border-blue-300 rounded-lg flex items-center justify-center text-blue-900 font-bold shadow-sm text-[10px] sm:text-base">전체</div></div>
+                                <div class="w-[2%]"></div>
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">화</span><div class="w-full h-4 sm:h-5 bg-[#fdf2e3] border border-[#dfb175] rounded-lg shadow-sm"></div></div>
+                                <div class="w-[2%]"></div>
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">수</span><div class="w-full h-6 sm:h-8 bg-[#fdf2e3] border border-[#dfb175] rounded-lg shadow-sm"></div></div>
+                                <div class="w-[2%]"></div>
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">목</span><div class="w-full h-8 sm:h-11 bg-[#fdf2e3] border border-[#dfb175] rounded-lg shadow-sm"></div></div>
+                                <div class="w-[2%]"></div>
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">금</span><div class="w-full h-10 sm:h-14 bg-[#fdf2e3] border border-[#dfb175] rounded-lg shadow-sm"></div></div>
+                                <div class="w-[2%]"></div>
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">토</span><div class="w-full h-12 sm:h-[4.5rem] bg-[#fdf2e3] border border-[#dfb175] rounded-lg shadow-sm"></div></div>
+                                <div class="w-[2%]"></div>
+                                <div class="flex flex-col items-center w-[12%]"><span class="mb-2 text-slate-500 font-semibold text-sm">일</span><div class="w-full h-14 sm:h-[5.5rem] bg-[#fdf2e3] border border-[#dfb175] rounded-lg shadow-sm"></div></div>
                             </div>
                             
-                            <div class="border-t border-slate-100 pt-3">
-                                <div class="grid grid-cols-2 gap-2 text-xs text-slate-600 mb-2">
-                                    <div>⚡ 복구 속도: <span class="font-bold text-amber-600">빠름</span></div>
-                                    <div>💾 저장 용량: <span class="font-bold text-amber-600">보통</span></div>
-                                </div>
-                                <div class="text-[11px] bg-amber-50 text-amber-800 p-2 rounded">
-                                    <strong>💡 복구할 때:</strong> 중간 백업본은 필요 없이 <code>최초 풀 백업본 + 복구 시점의 당일 차등 백업본</code> <strong>단 2개</strong>만 있으면 완료됩니다.
-                                </div>
-                            </div>
+                            <p class="text-slate-600 text-sm mt-4">복원: 풀백업 + 가장 최근 차등 1개만 있으면 복원 (증분보다 복원 단순·안정 / 날이 갈수록 용량 증가)</p>
+                        </div>
+
+                        <!-- Legend -->
+                        <div class="flex flex-wrap gap-6 mt-4 justify-start text-sm">
+                            <div class="flex items-center gap-2"><div class="w-8 h-3.5 bg-[#1a66b2] rounded-full"></div> <span class="text-slate-600 font-semibold">전체(풀)</span></div>
+                            <div class="flex items-center gap-2"><div class="w-8 h-3.5 bg-[#75ad4f] rounded-full"></div> <span class="text-slate-600 font-semibold">증분(직전 이후 변경분)</span></div>
+                            <div class="flex items-center gap-2"><div class="w-8 h-3.5 bg-[#cb8324] rounded-full"></div> <span class="text-slate-600 font-semibold">차등(풀 이후 누적 변경분)</span></div>
                         </div>
                     </div>
 

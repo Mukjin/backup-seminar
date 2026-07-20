@@ -153,169 +153,94 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-                <!-- Backup Methods -->
+                <!-- Backup Evolution -->
                 <div class="glass-card rounded-2xl p-6 shadow-md lg:col-span-2">
-                    <h3 class="text-lg font-bold text-slate-800 mb-4">[슬라이드 3] 주요 백업 방식 비교</h3>
+                    <h3 class="text-lg font-bold text-slate-800 mb-4">[슬라이드 3] TTA 백업 방식 및 보관 정책의 진화</h3>
 
-                    <!-- Connection description banner -->
+                    <!-- Description banner -->
                     <div class="bg-slate-50 text-slate-700 p-5 rounded-xl border border-slate-200 text-sm mb-6">
-                        <h4 class="font-bold text-teal-700 mb-2">🔄 쉽게 이해하는 백업 방식의 차이와 관계</h4>
+                        <h4 class="font-bold text-teal-700 mb-2">🔄 전체(Full) 백업과 증분(Incremental) 백업의 전략적 활용</h4>
                         <p class="leading-relaxed">
-                            백업은 항상 전체 데이터 원본인 <strong>'풀 백업'</strong>을 먼저 해두어야 시작할 수 있습니다. 이후 새로 데이터가 늘어날 때, <strong>가장 최근 백업 시점 이후 늘어난 데이터만 보관할 것인가(증분)</strong>, 아니면 <strong>마지막 풀 백업 시점 이후 늘어난 누적분을 보관할 것인가(차등)</strong>의 관계를 가집니다.
+                            우리 TTA는 가장 확실한 원본 보장인 <strong>'전체(Full) 백업'</strong>과 저장 효율이 매우 뛰어난 <strong>'증분(Incremental) 백업'</strong> 두 가지 방식을 혼합하여 사용합니다. (차등 백업은 사용하지 않습니다)<br>
+                            과거에는 데이터 중요도에 따라 보관 주기가 2주에서 12주까지 파편화되어 있었으나, 현재는 <strong>데이터 보관 주기 상향 통합 정책</strong>을 통해 모든 주요 백업본을 <strong>12주(약 3개월)</strong> 동안 일괄 보관하여 랜섬웨어 등 장기 잠복 위협에 완벽히 대비하고 있습니다.
                         </p>
                     </div>
 
-                    <!-- Interactive Infographic Grid -->
-                    <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-8">
-                        <!-- Full Backup Card -->
-                        <div class="border border-slate-200 rounded-xl p-5 bg-white shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <span class="font-bold text-base text-slate-800 bg-blue-100 text-blue-800 px-3 py-1 rounded-full">풀(Full) 백업</span>
-                                    <span class="text-xs text-blue-600 font-semibold">전체 원본</span>
-                                </div>
-                                <div class="bg-blue-50/50 border border-blue-100 p-3 rounded-lg text-xs mb-3 text-slate-700">
-                                    <strong>📍 매번 전부 복사:</strong><br>
-                                    복잡하게 계산하지 않고 매번 데이터를 통째로 다 백업해 두는 방식입니다.
-                                </div>
-                                <p class="text-xs text-slate-500 mb-4">백업하는 데 시간이 가장 오래 걸리지만, 데이터 전체가 하나로 뭉쳐 있어 관리하기가 쉽습니다.</p>
-                                
-                                <!-- Infographic Timeline -->
-                                <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 space-y-2 mb-4">
-                                    <div class="flex items-center text-xs">
-                                        <span class="w-10 text-slate-400 font-semibold">일요일</span>
-                                        <div class="flex-1 flex gap-1">
-                                            <div class="h-6 flex-1 bg-blue-600 rounded text-[9px] text-white flex items-center justify-center font-bold shadow-sm">전체 데이터</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center text-xs">
-                                        <span class="w-10 text-slate-400 font-semibold">월요일</span>
-                                        <div class="flex-1 flex gap-1">
-                                            <div class="h-6 flex-1 bg-blue-600 rounded text-[9px] text-white flex items-center justify-center font-bold shadow-sm">전체 데이터</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center text-xs">
-                                        <span class="w-10 text-slate-400 font-semibold">화요일</span>
-                                        <div class="flex-1 flex gap-1">
-                                            <div class="h-6 flex-1 bg-blue-600 rounded text-[9px] text-white flex items-center justify-center font-bold shadow-sm">전체 데이터</div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 mb-4">
+                        <!-- Old Policies (Before) -->
+                        <div>
+                            <h4 class="font-bold text-slate-500 mb-3 flex items-center gap-2">❌ 기존 기본 정책 <span class="text-xs font-normal text-slate-400">(변경 전)</span></h4>
+                            <div class="overflow-x-auto rounded-xl border border-slate-200 bg-white mb-4 shadow-sm">
+                                <table class="w-full text-center border-collapse text-xs">
+                                    <thead>
+                                        <tr class="bg-emerald-600 text-white font-bold border-b border-slate-200">
+                                            <th class="p-3 border-r border-emerald-500 bg-slate-100 text-slate-800 align-middle">백업방식 \ 백업대상</th>
+                                            <th class="p-3 border-r border-emerald-500 align-middle">솔루션 file</th>
+                                            <th class="p-3 align-middle" colspan="2">DB (file 또는 file + Online)</th>
+                                        </tr>
+                                        <tr class="bg-emerald-100 text-emerald-800 font-bold border-b border-slate-200">
+                                            <th class="p-3 border-r border-emerald-200 bg-slate-50 text-slate-800 align-middle"></th>
+                                            <th class="p-3 border-r border-emerald-200 align-middle">file</th>
+                                            <th class="p-3 border-r border-emerald-200 align-middle">file</th>
+                                            <th class="p-3 align-middle">Online</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100">
+                                        <tr>
+                                            <td class="p-3 font-bold bg-yellow-300 text-slate-800 border-r border-slate-200 align-middle whitespace-nowrap">전체 백업</td>
+                                            <td class="p-3 font-medium text-slate-700 border-r border-slate-100 align-middle">4주 또는 8주</td>
+                                            <td class="p-3 font-medium text-slate-700 border-r border-slate-100 align-middle">4주 또는 8주</td>
+                                            <td class="p-3 font-medium text-slate-700 align-middle">8주 또는 12주</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-bold bg-yellow-300 text-slate-800 border-r border-slate-200 align-middle whitespace-nowrap">증분 백업</td>
+                                            <td class="p-3 font-medium text-slate-700 border-r border-slate-100 align-middle">2주</td>
+                                            <td class="p-3 font-medium text-slate-700 border-r border-slate-100 align-middle">2주</td>
+                                            <td class="p-3 font-medium text-slate-700 align-middle">-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            
-                            <div class="border-t border-slate-100 pt-3">
-                                <div class="grid grid-cols-2 gap-2 text-xs text-slate-600 mb-2">
-                                    <div>⚡ 복구 속도: <span class="font-bold text-emerald-600">매우 빠름</span></div>
-                                    <div>💾 저장 용량: <span class="font-bold text-red-600">매우 큼</span></div>
-                                </div>
-                                <div class="text-[11px] bg-emerald-50 text-emerald-800 p-2 rounded">
-                                    <strong>💡 복구할 때:</strong> 원하는 날짜의 전체 백업본 <strong>딱 1개만</strong> 가져와 풀면 복구가 끝납니다.
-                                </div>
-                            </div>
+                            <p class="text-[11px] text-slate-500 text-center leading-relaxed">※ 시스템 및 데이터 중요도에 따라 전체 백업 보관 주기를 차등적으로 적용하며, 중요도가 높을수록 오래 보관한다.</p>
                         </div>
 
-                        <!-- Incremental Backup Card -->
-                        <div class="border border-slate-200 rounded-xl p-5 bg-white shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <span class="font-bold text-base text-slate-800 bg-teal-100 text-teal-800 px-3 py-1 rounded-full">증분(Incremental) 백업</span>
-                                    <span class="text-xs text-teal-600 font-semibold">최근 백업 이후 변경분</span>
-                                </div>
-                                <div class="bg-teal-50/50 border border-teal-100 p-3 rounded-lg text-xs mb-3 text-slate-700">
-                                    <strong>🔗 바로 직전 백업과 연동:</strong><br>
-                                    가장 최근 백업(풀 혹은 이전 증분) 시점 이후 변경된 데이터만 저장합니다.
-                                </div>
-                                <p class="text-xs text-slate-500 mb-4">가장 최근에 기록된 시점과 비교해 새로 추가/변경된 부분만 저장하므로 용량이 매우 절약됩니다.</p>
-                                
-                                <!-- Infographic Timeline -->
-                                <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 space-y-2 mb-4">
-                                    <div class="flex items-center text-xs">
-                                        <span class="w-10 text-slate-400 font-semibold">일요일</span>
-                                        <div class="flex-1 flex gap-1">
-                                            <div class="h-6 flex-1 bg-blue-600 rounded text-[9px] text-white flex items-center justify-center font-bold shadow-sm">전체 데이터 (기본)</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center text-xs">
-                                        <span class="w-10 text-slate-400 font-semibold">월요일</span>
-                                        <div class="flex-1 flex gap-1">
-                                            <div class="h-6 w-full bg-slate-200 rounded text-[9px] text-slate-400 flex items-center justify-center">변경 없음</div>
-                                            <div class="h-6 w-1/4 bg-teal-500 rounded text-[9px] text-white flex items-center justify-center font-bold shadow-sm">월 변경분</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center text-xs">
-                                        <span class="w-10 text-slate-400 font-semibold">화요일</span>
-                                        <div class="flex-1 flex gap-1">
-                                            <div class="h-6 w-full bg-slate-200 rounded text-[9px] text-slate-400 flex items-center justify-center">변경 없음</div>
-                                            <div class="h-6 w-1/4 bg-teal-500 rounded text-[9px] text-white flex items-center justify-center font-bold shadow-sm">화 변경분</div>
-                                        </div>
-                                    </div>
-                                </div>
+                        <!-- New Unified Policy (After) -->
+                        <div>
+                            <h4 class="font-bold text-emerald-700 mb-3 flex items-center gap-2">✅ 신규 통합 정책 <span class="text-xs font-bold text-emerald-500 bg-emerald-50 px-2 py-0.5 rounded-full">(현재 운영)</span></h4>
+                            <div class="overflow-x-auto rounded-xl border-2 border-emerald-500 bg-white shadow-md relative mb-4">
+                                <div class="absolute top-0 right-0 bg-emerald-500 text-white font-bold text-[9px] px-3 py-1 rounded-bl-lg uppercase tracking-wider">적용 완료</div>
+                                <table class="w-full text-center border-collapse text-xs">
+                                    <thead>
+                                        <tr class="bg-emerald-600 text-white font-bold border-b border-slate-200">
+                                            <th class="p-3 border-r border-emerald-500 bg-slate-100 text-slate-800 align-middle">백업방식 \ 백업대상</th>
+                                            <th class="p-3 border-r border-emerald-500 align-middle">솔루션 file</th>
+                                            <th class="p-3 align-middle" colspan="2">DB (file 또는 file + Online)</th>
+                                        </tr>
+                                        <tr class="bg-emerald-100 text-emerald-800 font-bold border-b border-slate-200">
+                                            <th class="p-3 border-r border-emerald-200 bg-slate-50 text-slate-800 align-middle"></th>
+                                            <th class="p-3 border-r border-emerald-200 align-middle">file</th>
+                                            <th class="p-3 border-r border-emerald-200 align-middle">file</th>
+                                            <th class="p-3 align-middle">Online</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100">
+                                        <tr class="bg-emerald-50/30">
+                                            <td class="p-3 font-bold bg-yellow-300 text-slate-800 border-r border-slate-200 align-middle whitespace-nowrap">전체 백업</td>
+                                            <td class="p-3 font-bold text-emerald-700 border-r border-slate-100 text-sm align-middle">12주</td>
+                                            <td class="p-3 font-bold text-emerald-700 border-r border-slate-100 text-sm align-middle">12주</td>
+                                            <td class="p-3 font-bold text-emerald-700 text-sm align-middle">12주</td>
+                                        </tr>
+                                        <tr class="bg-emerald-50/30">
+                                            <td class="p-3 font-bold bg-yellow-300 text-slate-800 border-r border-slate-200 align-middle whitespace-nowrap">증분 백업</td>
+                                            <td class="p-3 font-bold text-emerald-700 border-r border-slate-100 text-sm align-middle">12주</td>
+                                            <td class="p-3 font-bold text-emerald-700 border-r border-slate-100 text-sm align-middle">12주</td>
+                                            <td class="p-3 font-medium text-slate-500 align-middle">-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            
-                            <div class="border-t border-slate-100 pt-3">
-                                <div class="grid grid-cols-2 gap-2 text-xs text-slate-600 mb-2">
-                                    <div>⚡ 복구 속도: <span class="font-bold text-red-600">느림</span></div>
-                                    <div>💾 저장 용량: <span class="font-bold text-emerald-600">최소</span></div>
-                                </div>
-                                <div class="text-[11px] bg-teal-50 text-teal-800 p-2 rounded">
-                                    <strong>💡 복구할 때:</strong> <code>최초 풀 백업 + 월요일 증분 + 화요일 증분 + 수요일 증분</code> 등 <strong>모든 백업 체인</strong>을 순서대로 병합해야 합니다.
-                                </div>
-                            </div>
+                            <p class="text-[11px] text-emerald-700 text-center font-bold leading-relaxed">※ 모든 시스템의 주요 백업 보관 주기를 12주로 상향 통합하여 장애 복구 가용성 극대화</p>
                         </div>
-
-                        <!-- Differential Backup Card -->
-                        <div class="border border-slate-200 rounded-xl p-5 bg-white shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-3">
-                                    <span class="font-bold text-base text-slate-800 bg-amber-100 text-amber-800 px-3 py-1 rounded-full">차등(Differential) 백업</span>
-                                    <span class="text-xs text-amber-600 font-semibold">마지막 풀 대비 누적</span>
-                                </div>
-                                <div class="bg-amber-50/50 border border-amber-100 p-3 rounded-lg text-xs mb-3 text-slate-700">
-                                    <strong>🎯 마지막 풀 백업과 연동:</strong><br>
-                                    일요일 풀 백업 이후 누적된 월요일 변경분, 화요일엔 월+화 변경분을 누적해서 백업합니다.
-                                </div>
-                                <p class="text-xs text-slate-500 mb-4">중간 단계는 생략하고 오직 기준점(풀 백업) 이후 늘어난 데이터 전체를 매번 누적하여 저장합니다.</p>
-                                
-                                <!-- Infographic Timeline -->
-                                <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 space-y-2 mb-4">
-                                    <div class="flex items-center text-xs">
-                                        <span class="w-10 text-slate-400 font-semibold">일요일</span>
-                                        <div class="flex-1 flex gap-1">
-                                            <div class="h-6 flex-1 bg-blue-600 rounded text-[9px] text-white flex items-center justify-center font-bold shadow-sm">전체 데이터 (기본)</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center text-xs">
-                                        <span class="w-10 text-slate-400 font-semibold">월요일</span>
-                                        <div class="flex-1 flex gap-1">
-                                            <div class="h-6 w-full bg-slate-200 rounded text-[9px] text-slate-400 flex items-center justify-center">변경 없음</div>
-                                            <div class="h-6 w-1/4 bg-amber-500 rounded text-[9px] text-white flex items-center justify-center font-bold shadow-sm">월 누적분</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center text-xs">
-                                        <span class="w-10 text-slate-400 font-semibold">화요일</span>
-                                        <div class="flex-1 flex gap-1">
-                                            <div class="h-6 w-full bg-slate-200 rounded text-[9px] text-slate-400 flex items-center justify-center">변경 없음</div>
-                                            <div class="h-6 w-1/2 bg-amber-500 rounded text-[9px] text-white flex items-center justify-center font-bold shadow-sm">월+화 누적분</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="border-t border-slate-100 pt-3">
-                                <div class="grid grid-cols-2 gap-2 text-xs text-slate-600 mb-2">
-                                    <div>⚡ 복구 속도: <span class="font-bold text-amber-600">빠름</span></div>
-                                    <div>💾 저장 용량: <span class="font-bold text-amber-600">보통</span></div>
-                                </div>
-                                <div class="text-[11px] bg-amber-50 text-amber-800 p-2 rounded">
-                                    <strong>💡 복구할 때:</strong> 중간 백업본은 필요 없이 <code>최초 풀 백업본 + 복구 시점의 당일 차등 백업본</code> <strong>단 2개</strong>만 있으면 완료됩니다.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-
                     </div>
 
                     <!-- TTA Backup System Configuration (From Reference Slides) -->
@@ -564,42 +489,7 @@
                 </ul>
             </div>
 
-            <!-- Retention Policy Card (Moved here) -->
-            <div class="glass-card rounded-2xl p-6 shadow-md mt-8 border-t-4 border-t-emerald-500">
-                <h3 class="text-xl font-bold text-slate-800 mb-2">⏳ 데이터 보관 주기 상향 통합 정책 (기존 vs 신규)</h3>
-                <p class="text-xs text-slate-500 mb-6">안정적인 장애 조치 시간 확보를 위한 데이터 보관 정책 단일화</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
-                    <!-- Old Policies (Before) -->
-                    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                        <div>
-                            <h5 class="font-bold text-slate-500 mb-3 flex items-center gap-1">❌ 기존 기본 정책 (변경 전)</h5>
-                            <div class="rounded-lg overflow-hidden border border-slate-100 shadow-inner bg-slate-50 p-1 mb-2">
-                                <img src="policy_before.png" alt="기존 보관 주기 정책" class="w-full h-auto object-contain rounded">
-                            </div>
-                        </div>
-                        <span class="text-[10px] text-slate-500 block text-center leading-tight">
-                            * 대상 및 백업 방식에 따라 보관 주기 차등 적용 (2주 / 4주 / 8주)
-                        </span>
-                    </div>
 
-                    <!-- New Unified Policy (After) -->
-                    <div class="bg-white p-4 rounded-xl border-2 border-emerald-500 shadow-md flex flex-col justify-between relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-emerald-500 text-white font-bold text-[9px] px-3 py-1 rounded-bl-lg uppercase tracking-wider">
-                            적용 완료
-                        </div>
-                        <div>
-                            <h5 class="font-bold text-emerald-800 mb-3 flex items-center gap-1">✅ 변경 후 최신 정책 (12주 상향 통합)</h5>
-                            <div class="rounded-lg overflow-hidden border border-emerald-100 shadow-inner bg-emerald-50/20 p-1 mb-2">
-                                <img src="policy_after.png" alt="최신 보관 주기 정책" class="w-full h-auto object-contain rounded">
-                            </div>
-                        </div>
-                        <span class="text-[10px] text-emerald-700 block text-center font-semibold leading-tight">
-                            * 장애 복구 가용성 극대화를 위해 모든 솔루션/DB 보관 주기를 12주로 단일화
-                        </span>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <!-- PART 4: 운영 현황 -->

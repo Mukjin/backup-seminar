@@ -866,131 +866,47 @@
     <!-- Scripts for Interactivity and Charts -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. 슬라이드 기반 페이지네이션 로직
-            const slides = [];
-            const navLinks = document.querySelectorAll('.nav-link');
+            // 1. 단일 페이지 탭(Tab) 네비게이션 로직
             const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
             const mainContainer = document.querySelector('main');
 
-            // DOM에서 '[슬라이드' 텍스트를 포함하는 모든 헤딩 요소를 찾아 슬라이드 카드로 등록
-            document.querySelectorAll('h2, h3, h4').forEach(h => {
-                if (h.textContent.includes('[슬라이드')) {
-                    const card = h.closest('.glass-card, .gradient-bg');
-                    if (card && !slides.includes(card)) {
-                        slides.push(card);
-                        card.classList.add('presentation-slide');
-                    }
+            // 초기화: 첫 번째 섹션만 보여주고 나머지 숨김
+            sections.forEach((sec, index) => {
+                sec.classList.remove('mb-16', 'scroll-mt-8'); // 기존 스크롤 여백 클래스 제거
+                if (index !== 0) {
+                    sec.style.display = 'none';
+                } else {
+                    sec.classList.add('animate-fade-in');
                 }
             });
 
-            // 페이지네이션 컨트롤 UI 동적 생성 (우측 하단 플로팅 뱃지 형태)
-            const paginationUI = document.createElement('div');
-            paginationUI.className = 'fixed bottom-6 right-8 bg-slate-800/90 backdrop-blur-md text-white px-5 py-2.5 rounded-full shadow-2xl flex items-center gap-6 z-50 border border-slate-600 transition-all';
-            paginationUI.innerHTML = `
-                <button id="prevSlideBtn" class="hover:text-teal-400 transition-colors focus:outline-none flex items-center justify-center p-1 rounded-full hover:bg-slate-700/50">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-                </button>
-                <div class="text-sm font-semibold tracking-wider font-mono text-center flex items-center gap-1">
-                    <span id="currentSlideNum" class="text-teal-400 text-lg">1</span> 
-                    <span class="text-slate-400">/</span> 
-                    <span id="totalSlideNum" class="text-slate-300">${slides.length}</span>
-                </div>
-                <button id="nextSlideBtn" class="hover:text-teal-400 transition-colors focus:outline-none flex items-center justify-center p-1 rounded-full hover:bg-slate-700/50">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                </button>
-            `;
-            document.body.appendChild(paginationUI);
-
-            let currentSlideIndex = 0;
-            const currentNumSpan = document.getElementById('currentSlideNum');
-            const prevBtn = document.getElementById('prevSlideBtn');
-            const nextBtn = document.getElementById('nextSlideBtn');
-
-            function showSlide(index) {
-                if (index < 0) index = 0;
-                if (index >= slides.length) index = slides.length - 1;
-                currentSlideIndex = index;
-                
-                slides.forEach((slide, i) => {
-                    if (i === currentSlideIndex) {
-                        slide.style.display = ''; // 기본 flex/block CSS를 살리기 위해 인라인 속성 제거
-                        // 단일 슬라이드가 화면을 가득 채우도록 grid span 조정
-                        slide.classList.remove('lg:col-span-1');
-                        slide.classList.add('lg:col-span-2');
-                        
-                        slide.classList.remove('animate-fade-in');
-                        void slide.offsetWidth; // reflow
-                        slide.classList.add('animate-fade-in');
-                        
-                        // 현재 슬라이드가 속한 section 탭 활성화
-                        const parentSection = slide.closest('section');
-                        if (parentSection) {
-                            sections.forEach(sec => sec.style.display = 'none');
-                            parentSection.style.display = 'block';
-                            
-                            const targetId = parentSection.getAttribute('id');
-                            navLinks.forEach(nav => {
-                                nav.classList.remove('active');
-                                if (nav.getAttribute('data-target') === targetId) {
-                                    nav.classList.add('active');
-                                }
-                            });
-                        }
-                    } else {
-                        slide.style.display = 'none';
-                    }
-                });
-                
-                currentNumSpan.textContent = currentSlideIndex + 1;
-                
-                prevBtn.style.opacity = currentSlideIndex === 0 ? '0.3' : '1';
-                prevBtn.style.pointerEvents = currentSlideIndex === 0 ? 'none' : 'auto';
-                nextBtn.style.opacity = currentSlideIndex === slides.length - 1 ? '0.3' : '1';
-                nextBtn.style.pointerEvents = currentSlideIndex === slides.length - 1 ? 'none' : 'auto';
-                
-                mainContainer.scrollTop = 0;
-            }
-
-            // 좌측 사이드바 탭 클릭 시 해당 섹션의 '첫 번째 슬라이드'로 점프하도록 이벤트 재정의
+            // 사이드바 클릭 이벤트 처리
             navLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     const targetId = link.getAttribute('data-target');
-                    const targetSection = document.getElementById(targetId);
-                    
-                    if (targetSection) {
-                        const firstSlideInSection = targetSection.querySelector('.presentation-slide');
-                        if (firstSlideInSection) {
-                            const slideIdx = slides.indexOf(firstSlideInSection);
-                            if (slideIdx !== -1) {
-                                showSlide(slideIdx);
-                            }
+
+                    // 활성화된 링크 스타일 업데이트
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    link.classList.add('active');
+
+                    // 타겟 섹션만 부드럽게 표시하고 나머지는 숨김
+                    sections.forEach(sec => {
+                        if (sec.getAttribute('id') === targetId) {
+                            sec.style.display = 'block';
+                            sec.classList.remove('animate-fade-in');
+                            void sec.offsetWidth; // 애니메이션 재시작을 위한 강제 리플로우
+                            sec.classList.add('animate-fade-in');
                         } else {
-                            sections.forEach(sec => sec.style.display = 'none');
-                            targetSection.style.display = 'block';
-                            navLinks.forEach(nav => nav.classList.remove('active'));
-                            link.classList.add('active');
+                            sec.style.display = 'none';
                         }
-                    }
+                    });
+
+                    // 화면을 항상 맨 위로 끌어올림
+                    mainContainer.scrollTop = 0;
                 });
             });
-
-            prevBtn.addEventListener('click', () => showSlide(currentSlideIndex - 1));
-            nextBtn.addEventListener('click', () => showSlide(currentSlideIndex + 1));
-            
-            // 키보드 네비게이션 추가
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowRight' || e.key === ' ') { // 오른쪽 화살표 또는 스페이스바
-                    e.preventDefault();
-                    showSlide(currentSlideIndex + 1);
-                } else if (e.key === 'ArrowLeft') {
-                    e.preventDefault();
-                    showSlide(currentSlideIndex - 1);
-                }
-            });
-
-            // 초기 로드시 첫 슬라이드로 초기화
-            showSlide(0);
 
 
             // 3. 이미지 클릭 시 전체화면 모달 로직

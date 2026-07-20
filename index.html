@@ -744,14 +744,14 @@
     </main>
 
     <!-- Image Modal -->
-    <div id="imageModal" class="fixed inset-0 z-50 hidden bg-slate-900/90 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
-        <div class="relative max-w-7xl max-h-[90vh] w-full flex justify-center items-center">
-            <button id="closeModal" class="absolute -top-10 right-0 lg:-right-10 text-white hover:text-teal-400 focus:outline-none transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <div id="imageModal" class="fixed inset-0 z-50 hidden bg-slate-900/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 opacity-0 transition-opacity duration-300">
+        <div class="relative w-full h-full flex justify-center items-center">
+            <button id="closeModal" class="absolute top-0 right-0 z-50 text-white bg-slate-800/50 rounded-full p-2 hover:bg-teal-500 focus:outline-none transition-all drop-shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
-            <img id="modalImage" src="" alt="Full size" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl">
+            <img id="modalImage" src="" alt="Full size" class="w-full h-full object-contain drop-shadow-2xl">
         </div>
     </div>
 

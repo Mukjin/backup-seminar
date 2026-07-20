@@ -313,51 +313,7 @@
                         </div>
                     </div>
 
-                    <!-- Comparison Table -->
-                    <div class="overflow-x-auto rounded-xl border border-slate-200 bg-white">
-                        <table class="w-full text-left border-collapse text-xs">
-                            <thead>
-                                <tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
-                                    <th class="p-3">비교 항목</th>
-                                    <th class="p-3">풀(Full) 백업</th>
-                                    <th class="p-3">증분(Incremental) 백업</th>
-                                    <th class="p-3">차등(Differential) 백업</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-100">
-                                <tr>
-                                    <td class="p-3 font-semibold bg-slate-50 text-slate-800">개념 요약</td>
-                                    <td class="p-3 font-medium text-slate-700">전체를 매번 복사</td>
-                                    <td class="p-3 font-medium text-slate-700">가장 최근 백업 시점 이후 변경분만 복사</td>
-                                    <td class="p-3 font-medium text-slate-700">마지막 풀 백업 시점 이후 누적 변경분 모두 복사</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3 font-semibold bg-slate-50 text-slate-800">백업 속도</td>
-                                    <td class="p-3 text-red-600 font-medium">가장 느림</td>
-                                    <td class="p-3 text-emerald-600 font-medium">가장 빠름</td>
-                                    <td class="p-3 text-amber-600 font-medium">보통 (시간 갈수록 용량 및 시간 증가)</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3 font-semibold bg-slate-50 text-slate-800">복구 속도</td>
-                                    <td class="p-3 text-emerald-600 font-medium">가장 빠름 (1개 복원)</td>
-                                    <td class="p-3 text-red-600 font-medium">가장 느림 (모든 체인 파일 병합 필요)</td>
-                                    <td class="p-3 text-amber-600 font-medium">빠름 (풀 백업본 + 최근 차등 백업본 2개만 결합)</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3 font-semibold bg-slate-50 text-slate-800">저장 공간 효율</td>
-                                    <td class="p-3 text-red-600 font-medium">낮음 (매우 비효율적)</td>
-                                    <td class="p-3 text-emerald-600 font-medium">매우 높음 (중복 데이터 최소화)</td>
-                                    <td class="p-3 text-amber-600 font-medium">보통</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3 font-semibold bg-slate-50 text-slate-800">장애 위험 및 관리</td>
-                                    <td class="p-3 text-slate-600">낮음 (단일 파일 관리)<br><span class="text-[10px] text-red-500">* 풀 백업 자체 손상 시 복원 불가</span></td>
-                                    <td class="p-3 text-slate-600">높음 (필요 파일 수가 많아 체인 중 하나만 깨져도 링크가 끊어져 전체 복구 불가)</td>
-                                    <td class="p-3 text-slate-600">보통 (풀 백업본과 해당 복구일자 백업본만 검증되면 가능)</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+
                 </div>
 
                     </div>

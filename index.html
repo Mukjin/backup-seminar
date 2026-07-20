@@ -470,28 +470,6 @@
                             </div>
                         </div>
 
-                        <!-- Seminar Q&A Guide -->
-                        <div class="mt-6 bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs text-slate-700">
-                            <h5 class="font-bold text-slate-800 mb-3 flex items-center gap-1">💡 세미나 FAQ / Q&A 대비용 참고 자료</h5>
-                            <div class="space-y-3">
-                                <div>
-                                    <strong class="text-teal-800 block">Q1. 기존 정책에서 '4주 또는 8주' 보관 주기의 세부 기준은 무엇이었나요?</strong>
-                                    <p class="mt-1 text-slate-600 leading-relaxed">
-                                        기존에는 <strong>시스템 및 데이터의 중요도(영향도)</strong>에 따라 차등 적용했습니다. 
-                                        주요 핵심 운영 시스템 DB 등은 긴 장애 대응 가능 시간을 확보하기 위해 <strong>8주</strong> 동안 보관하고, 중요도가 상대적으로 낮거나 데이터 누적 속도가 빠른 일반 업무용 파일/DB는 <strong>4주</strong> 보관을 기준으로 분리 관리했습니다. 
-                                        (※ 현재는 장애 대처 안정성을 최우선으로 확보하기 위해 <strong>중요도 구분 없이 모두 최장 주기인 12주로 단일화(상향 통합)</strong> 완료했습니다.)
-                                    </p>
-                                </div>
-                                <div class="border-t border-slate-200 pt-3">
-                                    <strong class="text-teal-800 block">Q2. DB Online 백업에서 증분(Incremental) 백업을 수행하지 않고 매일 전체(Full) 백업만 수행하는 이유는 무엇인가요?</strong>
-                                    <p class="mt-1 text-slate-600 leading-relaxed">
-                                        크게 <strong>복구 신뢰성 확보</strong>와 <strong>가용성(RTO) 단축</strong>을 위해서입니다.<br>
-                                        ① <strong>복구 신뢰성</strong>: DB Online 백업은 가동 중인 데이터베이스(Oracle, MS-SQL 등)의 활성 블록을 백업합니다. 여러 개의 증분 파일을 하나씩 누적 결합하여 복구하게 되면, 중간 체인의 파일 중 단 하나라도 오류가 발생할 경우 전체 DB 정합성이 깨져 복구가 완전히 불가능해집니다.<br>
-                                        ② <strong>복구 시간(RTO) 단축</strong>: 장애 시 핵심 서비스를 최대한 빠르게 정상화해야 하므로, 복잡한 증분 백업 결합 단계 없이 <strong>'풀 백업본 단 1개'로 즉시 복구를 끝내기 위함</strong>입니다.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

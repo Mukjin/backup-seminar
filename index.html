@@ -597,10 +597,70 @@
                     </div>
                 </div>
 
-                <!-- Bridge Slide -->
-                <div class="glass-card rounded-2xl p-6 shadow-md border-dashed border-2 border-slate-300 lg:col-span-2 text-center bg-slate-50">
-                    <h3 class="text-lg font-bold text-slate-800 mb-2">[슬라이드 7] TTA 인프라로의 연결</h3>
-                    <p class="text-slate-600 font-medium">"그렇다면, 방금 말씀드린 랜섬웨어 위협 속에서<br>우리 TTA는 이 3-2-1 원칙을 어떻게 실제 솔루션으로 구현하고 있을까요?"</p>
+                <!-- Bridge Slide -> TTA 3-2-1 Implementation -->
+                <div class="glass-card rounded-2xl p-6 shadow-md border-t-4 border-t-indigo-600 lg:col-span-2">
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">[슬라이드 7] TTA의 3-2-1 방어 원칙 구현 현황</h3>
+                    <p class="text-sm text-slate-600 mb-6">"그렇다면, 방금 말씀드린 랜섬웨어 위협 속에서 우리 TTA는 이 3-2-1 원칙을 어떻게 실제 시스템으로 완벽히 구현하고 있을까요?"</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Rule 3 -->
+                        <div class="bg-blue-50 rounded-xl p-5 border border-blue-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
+                            <div class="absolute -right-4 -top-6 text-[80px] font-black text-blue-100/50 group-hover:scale-110 transition-transform">3</div>
+                            <h4 class="font-bold text-blue-800 text-lg mb-4 relative z-10">데이터 복제본 3개</h4>
+                            <ul class="space-y-3 relative z-10 text-sm">
+                                <li class="flex items-center gap-2">
+                                    <span class="w-6 h-6 rounded-full bg-blue-200 text-blue-700 flex items-center justify-center font-bold text-xs shrink-0">1</span>
+                                    <span class="text-slate-700"><strong>운영 서버</strong> (원본 데이터)</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-6 h-6 rounded-full bg-blue-200 text-blue-700 flex items-center justify-center font-bold text-xs shrink-0">2</span>
+                                    <span class="text-slate-700"><strong>QoreStor</strong> (1차 디스크 백업본)</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-6 h-6 rounded-full bg-blue-200 text-blue-700 flex items-center justify-center font-bold text-xs shrink-0">3</span>
+                                    <span class="text-slate-700"><strong>ML3 Tape</strong> (2차 오프라인 소산본)</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Rule 2 -->
+                        <div class="bg-indigo-50 rounded-xl p-5 border border-indigo-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
+                            <div class="absolute -right-4 -top-6 text-[80px] font-black text-indigo-100/50 group-hover:scale-110 transition-transform">2</div>
+                            <h4 class="font-bold text-indigo-800 text-lg mb-4 relative z-10">서로 다른 매체 2개</h4>
+                            <ul class="space-y-3 relative z-10 text-sm">
+                                <li class="flex gap-2">
+                                    <span class="w-6 h-6 rounded-full bg-indigo-200 text-indigo-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</span>
+                                    <div>
+                                        <span class="text-slate-700 block font-bold">디스크 스토리지 (Disk)</span>
+                                        <span class="text-slate-500 text-xs">빠른 백업 및 즉각적인 복구 (QS)</span>
+                                    </div>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="w-6 h-6 rounded-full bg-indigo-200 text-indigo-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</span>
+                                    <div>
+                                        <span class="text-slate-700 block font-bold">테이프 미디어 (Tape)</span>
+                                        <span class="text-slate-500 text-xs">안전한 장기 보관 및 물리적 격리 (ML3)</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Rule 1 -->
+                        <div class="bg-emerald-50 rounded-xl p-5 border border-emerald-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
+                            <div class="absolute -right-4 -top-6 text-[80px] font-black text-emerald-100/50 group-hover:scale-110 transition-transform">1</div>
+                            <h4 class="font-bold text-emerald-800 text-lg mb-4 relative z-10">오프라인/에어갭 1개</h4>
+                            <div class="relative z-10 text-sm space-y-3">
+                                <div class="bg-white/60 p-3 rounded-lg border border-emerald-200/50">
+                                    <span class="font-bold text-emerald-700 block mb-1">🛡️ 완벽한 망분리 (Air-Gap)</span>
+                                    <p class="text-slate-600 text-xs">ML3 Tape Library에 기록된 데이터는 <strong>네트워크와 완전히 단절</strong>됩니다.</p>
+                                </div>
+                                <div class="bg-white/60 p-3 rounded-lg border border-emerald-200/50">
+                                    <span class="font-bold text-emerald-700 block mb-1">🛑 최후의 방어선</span>
+                                    <p class="text-slate-600 text-xs">해커가 메인 서버를 장악하더라도 테이프에는 절대 접근할 수 없습니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

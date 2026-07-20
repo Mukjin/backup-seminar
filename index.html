@@ -580,32 +580,32 @@
                 </div>
             </div>
 
-            <!-- Details -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Backup Solutions -->
-                <div class="glass-card rounded-2xl p-6 shadow-md">
-                    <h3 class="text-lg font-bold text-slate-800 mb-4">[슬라이드 9] 백업 프로그램의 쉬운 역할</h3>
-                    <ul class="space-y-4 text-sm">
-                        <li class="p-3 bg-blue-50 rounded-lg border border-blue-100">
-                            <span class="font-bold text-blue-800 block mb-1">NetVault (파일/데이터 전담 백업)</span>
+            <!-- Backup Solutions Roles -->
+            <div class="glass-card rounded-2xl p-6 shadow-md mb-8">
+                <h3 class="text-xl font-bold text-slate-800 mb-6">[슬라이드 9] 주요 백업 솔루션의 역할</h3>
+                <ul class="space-y-4 text-sm">
+                    <li class="p-4 bg-blue-50 rounded-xl border border-blue-100 flex gap-4 items-center transition-transform hover:-translate-y-1 hover:shadow-md">
+                        <div class="w-14 h-14 rounded-full bg-blue-200 text-blue-700 flex items-center justify-center font-black text-xl shrink-0 shadow-inner">NV</div>
+                        <div>
+                            <span class="font-bold text-blue-800 block text-base mb-1">NetVault (파일/데이터 전담 백업)</span>
                             <span class="text-slate-600">회사에서 쓰는 중요한 문서 파일이나 데이터베이스를 **하나하나 골라서 안전하게 복사해 두는 프로그램**입니다.</span>
-                        </li>
-                        <li class="p-3 bg-indigo-50 rounded-lg border border-indigo-100">
-                            <span class="font-bold text-indigo-800 block mb-1">Rapid Recovery (컴퓨터 시스템 통째 백업)</span>
+                        </div>
+                    </li>
+                    <li class="p-4 bg-indigo-50 rounded-xl border border-indigo-100 flex gap-4 items-center transition-transform hover:-translate-y-1 hover:shadow-md">
+                        <div class="w-14 h-14 rounded-full bg-indigo-200 text-indigo-700 flex items-center justify-center font-black text-xl shrink-0 shadow-inner">RR</div>
+                        <div>
+                            <span class="font-bold text-indigo-800 block text-base mb-1">Rapid Recovery (컴퓨터 시스템 통째 백업)</span>
                             <span class="text-slate-600">컴퓨터의 모든 설정을 **통째로 사진 찍듯 복사해 두었다가**, 시스템 고장 시 **클릭 한 번으로 즉시 되살려주는 프로그램**입니다.</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- QoreStor Deduplication Chart -->
-                <div class="glass-card rounded-2xl p-6 shadow-md">
-                    <h3 class="text-lg font-bold text-slate-800 mb-2">[슬라이드 10] QoreStor 저장 효율성</h3>
-                    <p class="text-sm text-slate-500 mb-4">백업을 저장할 때, **중복되는 똑같은 내용을 하나만 남겨서 창고 자리를 90%나 아껴주는** 똑똑한 저장소입니다.</p>
-                    <div class="h-32 w-full">
-                        <canvas id="dedupChart"></canvas>
-                    </div>
-                    <p class="text-center text-sm font-bold text-teal-600 mt-2">저장 공간 약 90% 공간 절약</p>
-                </div>
+                        </div>
+                    </li>
+                    <li class="p-4 bg-teal-50 rounded-xl border border-teal-100 flex gap-4 items-center transition-transform hover:-translate-y-1 hover:shadow-md">
+                        <div class="w-14 h-14 rounded-full bg-teal-200 text-teal-700 flex items-center justify-center font-black text-xl shrink-0 shadow-inner">QS</div>
+                        <div>
+                            <span class="font-bold text-teal-800 block text-base mb-1">QoreStor (스마트 중복제거 저장소)</span>
+                            <span class="text-slate-600">백업을 저장할 때, **중복되는 똑같은 내용을 하나만 남겨서 창고 자리를 90%나 아껴주는** 똑똑한 스토리지입니다.</span>
+                        </div>
+                    </li>
+                </ul>
             </div>
 
             <!-- Retention Policy Card (Moved here) -->
@@ -820,33 +820,6 @@
                 });
             });
 
-            // 2. QoreStor Deduplication Chart
-            const ctxDedup = document.getElementById('dedupChart').getContext('2d');
-            new Chart(ctxDedup, {
-                type: 'bar',
-                data: {
-                    labels: ['논리적 데이터량', 'QoreStor 실제 저장량'],
-                    datasets: [{
-                        label: '데이터 용량 (TB)',
-                        data: [100, 10],
-                        backgroundColor: ['#94A3B8', '#0D9488'],
-                        borderRadius: 4
-                    }]
-                },
-                options: {
-                    indexAxis: 'y',
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        x: { display: false },
-                        y: { 
-                            ticks: { font: { family: 'Pretendard', size: 14, weight: 'bold' } }, 
-                            grid: { display: false } 
-                        }
-                    }
-                }
-            });
 
             // 3. 이미지 클릭 시 전체화면 모달 로직
             const modal = document.getElementById('imageModal');

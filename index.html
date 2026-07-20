@@ -159,11 +159,8 @@
 
             </div>
 
-            <div id="part1-scroll-wrapper" class="relative" style="height: 200vh;">
-                <div id="part1-sticky-container" class="sticky top-20 w-full flex justify-center overflow-hidden" style="height: calc(100vh - 6rem);">
-                    <!-- Slide 3 Layer -->
-                    <div id="slide-3-layer" class="absolute inset-x-0 top-0 transition-all duration-700 opacity-100 z-10 h-full overflow-y-auto w-full px-2 lg:px-4 pb-12 custom-scrollbar flex flex-col items-center">
-                        <div class="glass-card rounded-2xl p-6 shadow-md w-full max-w-5xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Backup Methods -->
                 <div class="glass-card rounded-2xl p-6 shadow-md lg:col-span-2">
                     <h3 class="text-lg font-bold text-slate-800 mb-4">[슬라이드 3] 주요 백업 방식 비교</h3>
 
@@ -262,14 +259,11 @@
 
                     </div>
 
-                        </div>
                     </div>
+                </div>
 
-                    <!-- Slide 3 Supplement Layer -->
-                    <div id="slide-3-supp-layer" class="absolute inset-x-0 top-0 transition-all duration-700 opacity-0 z-0 pointer-events-none h-full overflow-y-auto w-full px-2 lg:px-4 pb-12 custom-scrollbar flex flex-col items-center">
-                        <div class="w-full max-w-5xl">
-                            <!-- TTA Backup Policy Evolution -->
-                            <div class="glass-card rounded-2xl p-6 shadow-md border-t-4 border-t-emerald-500">
+                <!-- TTA Backup Policy Evolution -->
+                <div class="glass-card rounded-2xl p-6 shadow-md mt-8 border-t-4 border-t-emerald-500">
                         <h3 class="text-xl font-bold text-slate-800 mb-4">[슬라이드 3 보충] TTA 실제 백업 운영 및 보관 정책 진화</h3>
                         <div class="bg-slate-50 text-slate-700 p-5 rounded-xl border border-slate-200 text-sm mb-6">
                             <h4 class="font-bold text-teal-700 mb-2">🔄 전체(Full) 백업과 증분(Incremental) 백업의 활용</h4>
@@ -896,52 +890,6 @@
                     closeModal();
                 }
             });
-        });
-    </script>
-
-    <style>
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 8px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1); 
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: rgba(0, 0, 0, 0.2); 
-            border-radius: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 0, 0, 0.4); 
-        }
-    </style>
-    <script>
-        document.addEventListener('scroll', () => {
-            const wrapper = document.getElementById('part1-scroll-wrapper');
-            const layer3 = document.getElementById('slide-3-layer');
-            const layerSupp = document.getElementById('slide-3-supp-layer');
-            
-            if (wrapper && layer3 && layerSupp) {
-                const rect = wrapper.getBoundingClientRect();
-                const threshold = -window.innerHeight * 0.3; // Trigger earlier
-                
-                if (rect.top < threshold) {
-                    layer3.classList.replace('opacity-100', 'opacity-0');
-                    layer3.classList.replace('z-10', 'z-0');
-                    layer3.classList.add('pointer-events-none');
-                    
-                    layerSupp.classList.replace('opacity-0', 'opacity-100');
-                    layerSupp.classList.replace('z-0', 'z-10');
-                    layerSupp.classList.remove('pointer-events-none');
-                } else {
-                    layer3.classList.replace('opacity-0', 'opacity-100');
-                    layer3.classList.replace('z-0', 'z-10');
-                    layer3.classList.remove('pointer-events-none');
-                    
-                    layerSupp.classList.replace('opacity-100', 'opacity-0');
-                    layerSupp.classList.replace('z-10', 'z-0');
-                    layerSupp.classList.add('pointer-events-none');
-                }
-            }
         });
     </script>
 </body>

@@ -345,99 +345,35 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- TTA Backup System Configuration (From Reference Slides) -->
-                    <div class="mt-8 border border-teal-200 rounded-2xl p-6 bg-teal-50/20 shadow-md">
-                        <!-- Visual Policy Flow Section -->
-                        <h4 class="font-bold text-slate-800 text-base mb-6 flex items-center gap-2">
-                            <span>📅</span> 대상별 백업 실행 주기 스케줄 (주간 운영 정책)
-                        </h4>
-                        
-                        <div class="space-y-6 mb-6">
-                            <!-- Solution File Policy -->
-                            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
-                                <div class="flex items-center justify-between mb-3">
-                                    <span class="bg-teal-100 text-teal-800 font-bold px-3 py-1 rounded-full text-xs shrink-0">솔루션 File 백업</span>
-                                    <span class="text-xs text-slate-500 font-semibold">주 1회 전체 + 주 6회 증분 (일 1회)</span>
-                                </div>
-                                <div class="grid grid-cols-7 gap-1 md:gap-2 text-center text-[10px] md:text-xs">
-                                    <div class="bg-blue-600 text-white p-2 rounded shadow-sm font-bold flex flex-col items-center">
-                                        <span>일</span><span class="mt-1 bg-blue-800 px-1.5 py-0.5 rounded text-[9px] scale-90">전체</span>
-                                    </div>
-                                    <div class="bg-slate-100 text-slate-700 p-2 rounded border border-slate-200 flex flex-col items-center">
-                                        <span>월</span><span class="mt-1 bg-teal-600 text-white px-1.5 py-0.5 rounded text-[9px] font-bold scale-90">증분</span>
-                                    </div>
-                                    <div class="bg-slate-100 text-slate-700 p-2 rounded border border-slate-200 flex flex-col items-center">
-                                        <span>화</span><span class="mt-1 bg-teal-600 text-white px-1.5 py-0.5 rounded text-[9px] font-bold scale-90">증분</span>
-                                    </div>
-                                    <div class="bg-slate-100 text-slate-700 p-2 rounded border border-slate-200 flex flex-col items-center">
-                                        <span>수</span><span class="mt-1 bg-teal-600 text-white px-1.5 py-0.5 rounded text-[9px] font-bold scale-90">증분</span>
-                                    </div>
-                                    <div class="bg-slate-100 text-slate-700 p-2 rounded border border-slate-200 flex flex-col items-center">
-                                        <span>목</span><span class="mt-1 bg-teal-600 text-white px-1.5 py-0.5 rounded text-[9px] font-bold scale-90">증분</span>
-                                    </div>
-                                    <div class="bg-slate-100 text-slate-700 p-2 rounded border border-slate-200 flex flex-col items-center">
-                                        <span>금</span><span class="mt-1 bg-teal-600 text-white px-1.5 py-0.5 rounded text-[9px] font-bold scale-90">증분</span>
-                                    </div>
-                                    <div class="bg-slate-100 text-slate-700 p-2 rounded border border-slate-200 flex flex-col items-center">
-                                        <span>토</span><span class="mt-1 bg-teal-600 text-white px-1.5 py-0.5 rounded text-[9px] font-bold scale-90">증분</span>
+                        <!-- 주간 백업 실행 주기 요약 -->
+                        <div class="mt-6 pt-6 border-t border-slate-200">
+                            <h4 class="font-bold text-slate-800 text-base mb-3 flex items-center gap-1.5">
+                                <span>📅</span> 대상별 백업 실행 주기 스케줄 (주간 운영 정책)
+                            </h4>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 shadow-sm flex flex-col justify-between">
+                                    <div>
+                                        <div class="font-bold text-teal-800 mb-1.5 flex items-center gap-1"><span>📁</span> 솔루션 File 백업</div>
+                                        <p class="text-slate-600 text-xs leading-relaxed">주 1회(일) 전체 백업 + 주 6회(월~토) 증분 백업 (일 1회 실행)</p>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- DB File Policy -->
-                            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
-                                <div class="flex items-center justify-between mb-3">
-                                    <span class="bg-blue-100 text-blue-800 font-bold px-3 py-1 rounded-full text-xs shrink-0">DB File 백업</span>
-                                    <span class="text-xs text-slate-500 font-semibold">데이터 크기와 변화량에 따라 알맞은 백업 방식 선택</span>
-                                </div>
-                                <div class="space-y-3">
-                                    <!-- A -->
-                                    <div class="flex flex-col sm:flex-row sm:items-center gap-2">
-                                        <span class="text-[10px] bg-blue-50 text-blue-700 border border-blue-200 px-2 py-0.5 rounded font-bold shrink-0">방식 1: 매일 전체 백업 (소용량 DB / 빠른 복구 필요시)</span>
-                                        <div class="flex-1 grid grid-cols-7 gap-1 md:gap-2 text-center text-[9px] md:text-xs">
-                                            <div class="bg-blue-600 text-white p-1 rounded font-bold">일 (전체)</div>
-                                            <div class="bg-blue-600 text-white p-1 rounded font-bold">월 (전체)</div>
-                                            <div class="bg-blue-600 text-white p-1 rounded font-bold">화 (전체)</div>
-                                            <div class="bg-blue-600 text-white p-1 rounded font-bold">수 (전체)</div>
-                                            <div class="bg-blue-600 text-white p-1 rounded font-bold">목 (전체)</div>
-                                            <div class="bg-blue-600 text-white p-1 rounded font-bold">금 (전체)</div>
-                                            <div class="bg-blue-600 text-white p-1 rounded font-bold">토 (전체)</div>
-                                        </div>
-                                    </div>
-                                    <!-- B -->
-                                    <div class="flex flex-col sm:flex-row sm:items-center gap-2">
-                                        <span class="text-[10px] bg-teal-50 text-teal-700 border border-teal-200 px-2 py-0.5 rounded font-bold shrink-0">방식 2: 주 1회 전체 + 주 6회 증분 (대용량 DB / 용량 절약 필요시)</span>
-                                        <div class="flex-1 grid grid-cols-7 gap-1 md:gap-2 text-center text-[9px] md:text-xs">
-                                            <div class="bg-blue-600 text-white p-1 rounded font-bold">일 (전체)</div>
-                                            <div class="bg-slate-100 text-slate-700 p-1 rounded border border-slate-200 font-bold">월 (증분)</div>
-                                            <div class="bg-slate-100 text-slate-700 p-1 rounded border border-slate-200 font-bold">화 (증분)</div>
-                                            <div class="bg-slate-100 text-slate-700 p-1 rounded border border-slate-200 font-bold">수 (증분)</div>
-                                            <div class="bg-slate-100 text-slate-700 p-1 rounded border border-slate-200 font-bold">목 (증분)</div>
-                                            <div class="bg-slate-100 text-slate-700 p-1 rounded border border-slate-200 font-bold">금 (증분)</div>
-                                            <div class="bg-slate-100 text-slate-700 p-1 rounded border border-slate-200 font-bold">토 (증분)</div>
-                                        </div>
+                                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 shadow-sm flex flex-col justify-between">
+                                    <div>
+                                        <div class="font-bold text-blue-800 mb-1.5 flex items-center gap-1"><span>🗄️</span> DB File 백업</div>
+                                        <ul class="text-slate-600 text-xs list-disc list-inside space-y-1 leading-relaxed">
+                                            <li><strong>방식 1 (소용량 DB):</strong> 매일 전체 백업 (빠른 복구 필요시)</li>
+                                            <li><strong>방식 2 (대용량 DB):</strong> 주 1회(일) 전체 + 주 6회(월~토) 증분</li>
+                                        </ul>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- DB Online Policy -->
-                            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
-                                <div class="flex items-center justify-between mb-3">
-                                    <span class="bg-indigo-100 text-indigo-800 font-bold px-3 py-1 rounded-full text-xs shrink-0">DB Online 백업 (실시간 무중단)</span>
-                                    <span class="text-xs text-slate-500 font-semibold">주 7회 매일 전체 백업 수행</span>
+                                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 shadow-sm flex flex-col justify-between">
+                                    <div>
+                                        <div class="font-bold text-indigo-800 mb-1.5 flex items-center gap-1"><span>⚡</span> DB Online 백업</div>
+                                        <p class="text-slate-600 text-xs leading-relaxed">주 7회 매일 전체 백업 수행 (실시간 무중단 백업)</p>
+                                        <span class="text-[10px] text-slate-400 block mt-1.5 font-medium">※ 대상: Oracle, MS-SQL, Informix, My-SQL</span>
+                                    </div>
                                 </div>
-                                <div class="grid grid-cols-7 gap-1 md:gap-2 text-center text-[10px] md:text-xs">
-                                    <div class="bg-indigo-600 text-white p-2 rounded shadow-sm font-bold">일 (전체)</div>
-                                    <div class="bg-indigo-600 text-white p-2 rounded shadow-sm font-bold">월 (전체)</div>
-                                    <div class="bg-indigo-600 text-white p-2 rounded shadow-sm font-bold">화 (전체)</div>
-                                    <div class="bg-indigo-600 text-white p-2 rounded shadow-sm font-bold">수 (전체)</div>
-                                    <div class="bg-indigo-600 text-white p-2 rounded shadow-sm font-bold">목 (전체)</div>
-                                    <div class="bg-indigo-600 text-white p-2 rounded shadow-sm font-bold">금 (전체)</div>
-                                    <div class="bg-indigo-600 text-white p-2 rounded shadow-sm font-bold">토 (전체)</div>
-                                </div>
-                                <span class="text-[10px] text-slate-400 block mt-2 font-medium">※ 실시간 무중단 백업 적용 대상 DB: Oracle, MS-SQL, Informix, My-SQL</span>
                             </div>
                         </div>
                     </div>

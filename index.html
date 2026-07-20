@@ -743,6 +743,18 @@
 
     </main>
 
+    <!-- Image Modal -->
+    <div id="imageModal" class="fixed inset-0 z-50 hidden bg-slate-900/90 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="relative max-w-7xl max-h-[90vh] w-full flex justify-center items-center">
+            <button id="closeModal" class="absolute -top-10 right-0 lg:-right-10 text-white hover:text-teal-400 focus:outline-none transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <img id="modalImage" src="" alt="Full size" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl">
+        </div>
+    </div>
+
     <!-- Scripts for Interactivity and Charts -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -788,6 +800,7 @@
                 });
             });
 
+            // 2. QoreStor Deduplication Chart
             const ctxDedup = document.getElementById('dedupChart').getContext('2d');
             new Chart(ctxDedup, {
                 type: 'bar',
@@ -812,6 +825,43 @@
                             grid: { display: false } 
                         }
                     }
+                }
+            });
+
+            // 3. 이미지 클릭 시 전체화면 모달 로직
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const closeBtn = document.getElementById('closeModal');
+            
+            // 모든 이미지를 클릭 가능하게 만들기
+            const images = document.querySelectorAll('main img');
+            images.forEach(img => {
+                img.classList.add('cursor-pointer', 'hover:opacity-80', 'transition-opacity');
+                img.addEventListener('click', () => {
+                    modalImg.src = img.src;
+                    modal.classList.remove('hidden');
+                    // 약간의 지연 후 opacity 변경으로 페이드인 효과
+                    setTimeout(() => modal.classList.remove('opacity-0'), 10);
+                });
+            });
+
+            const closeModal = () => {
+                modal.classList.add('opacity-0');
+                setTimeout(() => modal.classList.add('hidden'), 300); // transition 시간(300ms) 후 hidden
+            };
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                // 이미지 바깥 영역(배경) 클릭 시 모달 닫기
+                if (e.target === modal || e.target.tagName !== 'IMG') {
+                    closeModal();
+                }
+            });
+            
+            // ESC 키 누를 때 모달 닫기
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModal();
                 }
             });
         });
